@@ -1,0 +1,12 @@
+<div>
+<h2>Welcome</h2>
+<h3>Loaded SystemJS Modules: {{(systemJsService.modules|async).length}}</h3>
+<mat-list>
+    <mat-list-item  *ngFor="let id of (systemJsService.modules|async)">{{id}}
+
+        <button *ngIf="!id.startsWith('import')" mat-mini-fab color="warn" (click)="systemJsService.unloadModuleByUrl(id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+    </mat-list-item>
+</mat-list>
+</div>
